@@ -21,8 +21,8 @@ for(let i = 1 ; i < 50 ; i++){
               <td class="table__cell table__cell--startime">Start Time</td>
               <td class="table__cell table__cell--endtime">End Time</td>
               <td class="table__cell table__cell--action">
-              <img class="cell__action__icon" src="https://raw.githubusercontent.com/WendellLiu/alphacamp-frontend-course/master/data-table/static/icons/menu.svg" id="action__input_1" alt="menu" />
-              <div class="action__menu hidden" role="dialog" aria-modal="true" aria-labelledby="action__input_1" id="action__menu_1">
+              <img class="cell__action__icon" src="https://raw.githubusercontent.com/WendellLiu/alphacamp-frontend-course/master/data-table/static/icons/menu.svg" id="action__input_${i}" alt="menu" />
+              <div class="action__menu hidden" role="dialog" aria-modal="true" aria-labelledby="action__input_${i}" id="action__menu_${i}">
                 <menu class="menu__body">
                   <menuitem class="menu__item">
                   <img src="https://raw.githubusercontent.com/WendellLiu/alphacamp-frontend-course/master/data-table/static/icons/duplicate.svg" class="menu__item__icon" />
@@ -51,16 +51,16 @@ const headerCheckBox = document.querySelector('#header_checkbox')
 const bodyRowClicked = event => {
   const target = event.target
   if(target.matches('.cell__action__icon')){
-    // target the menu element
-    const menu = target.nextElementSibling
-    menu.classList.toggle("hidden");
-  } else if (target.id === 'body_checkbox'){
-    const row = document.getElementById(target.dataset.id)
-    if (target.checked){
-      row.classList.add("focus")
+    const hbs = document.querySelectorAll('.action__menu')
+    if (target.nextElementSibling.classList.contains('hidden')){
+      hbs.forEach(hb => !hb.classList.contains('hidden') ? hb.classList.add('hidden'): void 8)
+      target.nextElementSibling.classList.toggle('hidden')
     }else{
-      row.classList.remove("focus")
+      target.nextElementSibling.classList.toggle('hidden')
     }
+   }else if (target.id === 'body_checkbox'){
+    const row = document.getElementById(target.dataset.id)
+    target.checked?row.classList.add("focus"):row.classList.remove("focus")
   }
 };
 

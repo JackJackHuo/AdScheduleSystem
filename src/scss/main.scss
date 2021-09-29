@@ -465,7 +465,7 @@ main{
           z-index: 999;
           height: 180px;
           width: 130px;
-          right:50%;
+          right:70%;
           top: 100%;
           background: var(--background-white);
           border: 1px solid var(--border-color);
@@ -488,6 +488,9 @@ main{
                 margin-right: 10px;
               }
             }
+            .menu__item:hover{
+              opacity: 0.5;
+            }        
           }
         }
         .hidden{
