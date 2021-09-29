@@ -47,6 +47,7 @@ const bodyRows = document.querySelectorAll(".table__body__row");
 const darkMode = document.querySelector('#dark__mode__toggle')
 const headerCheckBox = document.querySelector('#header_checkbox')
 
+
 // click handler
 const bodyRowClicked = event => {
   const target = event.target

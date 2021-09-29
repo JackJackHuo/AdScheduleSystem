@@ -350,6 +350,9 @@ nav{
     grid-template-rows: repeat(4 , 1fr);
     grid-template-columns: 1fr;
     grid-auto-flow: column;
+    li:hover:not(:last-of-type){
+      border: 5px solid var(--background-white);
+    }
     li:nth-child(1){
       background: url("https://raw.githubusercontent.com/WendellLiu/alphacamp-frontend-course/master/data-table/static/icons/frame.svg");
     }
