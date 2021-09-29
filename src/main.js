@@ -43,7 +43,7 @@ for(let i = 1 ; i < 50 ; i++){
 }
 
 // target the input element
-const bodyRows = document.querySelectorAll(".table__body__row");
+const rows = document.querySelectorAll(".table__row");
 const darkMode = document.querySelector('#dark__mode__toggle')
 const headerCheckBox = document.querySelector('#header_checkbox')
 
@@ -51,10 +51,10 @@ const headerCheckBox = document.querySelector('#header_checkbox')
 // click handler
 const bodyRowClicked = event => {
   const target = event.target
+  const menus = document.querySelectorAll('.action__menu')
   if(target.matches('.cell__action__icon')){
-    const hbs = document.querySelectorAll('.action__menu')
     if (target.nextElementSibling.classList.contains('hidden')){
-      hbs.forEach(hb => !hb.classList.contains('hidden') ? hb.classList.add('hidden'): void 8)
+      menus.forEach(menu => !menu.classList.contains('hidden') ? menu.classList.add('hidden'): void 8)
       target.nextElementSibling.classList.toggle('hidden')
     }else{
       target.nextElementSibling.classList.toggle('hidden')
@@ -62,6 +62,8 @@ const bodyRowClicked = event => {
    }else if (target.id === 'body_checkbox'){
     const row = document.getElementById(target.dataset.id)
     target.checked?row.classList.add("focus"):row.classList.remove("focus")
+  }else{
+    menus.forEach(menu => !menu.classList.contains('hidden') ? menu.classList.add('hidden') : void 8)
   }
 };
 
@@ -78,15 +80,15 @@ const headerCheckBoxClicked = e =>{
   if(e.target.checked){
     bodyCheckBox.forEach(checkBox => {
       checkBox.checked = true
-      bodyRows.forEach(row => row.classList.add("focus"))
+      rows.forEach(row => row.classList.add("focus"))
      
     })
   }else{
     bodyCheckBox.forEach(checkBox => checkBox.checked = false)
-    bodyRows.forEach(row => row.classList.remove("focus"))
+    rows.forEach(row => row.classList.remove("focus"))
   }
 }
 // bind the event
-bodyRows.forEach(bodyRow => bodyRow.addEventListener("click", bodyRowClicked))
+rows.forEach(bodyRow => bodyRow.addEventListener("click", bodyRowClicked))
 darkMode.addEventListener('change', darkModeToggleHandler)
 headerCheckBox.addEventListener('change', headerCheckBoxClicked)
