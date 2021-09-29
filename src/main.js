@@ -5,13 +5,13 @@ console.log('JS Loaded!!')
 const tbody = document.querySelector('.tbody')
 tbody.innerHTML = ''
 
-for(let i = 1 ; i < 20 ; i++){
+for(let i = 1 ; i < 50 ; i++){
   tbody.innerHTML += `<tr class="table__row table__body__row" id="row-${i}">
               <td class="table__cell table__cell--checkbox">
               <input type="checkbox" name="body_checkbox" id="body_checkbox" data-id="row-${i}">
               </td>
-              <td class="table__cell table__cell--id">ID</td>
-              <td class="table__cell table__cell--name">NAME</td>
+              <td class="table__cell table__cell--id">${i}</td>
+              <td class="table__cell table__cell--name">NAME-${i}</td>
               <td class="table__cell table__cell--ad">
                 <div class="advertiser">Advertiser</div>
                 <span class="gruop">Gruop</span>
